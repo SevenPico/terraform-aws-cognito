@@ -18,12 +18,6 @@
 ##  ./_variables.tf
 ##  This file contains code written only by SevenPico, Inc.
 ## ----------------------------------------------------------------------------
-
-variable "region" {
-  type        = string
-  description = "AWS region"
-}
-
 variable "user_pool_name" {
   description = "User pool name. If not provided, the name will be generated from the context"
   type        = string

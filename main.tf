@@ -19,9 +19,9 @@
 ##  This file contains code written only by SevenPico, Inc.
 ## ----------------------------------------------------------------------------
 locals {
-  enabled = module.this.enabled
+  enabled = module.context.enabled
 
-  user_pool_name = coalesce(var.user_pool_name, module.this.id)
+  user_pool_name = coalesce(var.user_pool_name, module.context.id)
 
   # If no username_configuration is provided return a empty list
   username_configuration_default = length(var.username_configuration) == 0 ? {} : {
@@ -350,5 +350,5 @@ resource "aws_cognito_user_pool" "pool" {
     }
   }
 
-  tags = module.this.tags
+  tags = module.context.tags
 }
