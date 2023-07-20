@@ -1,4 +1,4 @@
-module "components_cognito" {
+module "cognito" {
   source = "../../"
   # insert the 1 required variable here
   context    = module.context.self
