@@ -1,7 +1,7 @@
 resource "aws_cognito_user_pool_domain" "domain" {
-  count = !local.enabled || var.domain == null || var.domain == "" ? 0 : 1
+  count = !local.enabled || module.context.domain_name == null || module.context.domain_name == "" ? 0 : 1
 
-  domain          = var.domain
-  certificate_arn = var.domain_certificate_arn
-  user_pool_id    = join("", aws_cognito_user_pool.pool.*.id)
+  domain          = module.context.domain_name
+  certificate_arn = var.acm_certificate_arn
+  user_pool_id    = try(aws_cognito_user_pool.pool[0].id, "")
 }

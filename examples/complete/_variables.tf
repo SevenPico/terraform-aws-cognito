@@ -1,4 +1,4 @@
 variable "cognito_region" {
-  type = string
+  type    = string
   default = "us-east-1"
 }

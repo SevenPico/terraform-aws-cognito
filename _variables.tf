@@ -379,13 +379,7 @@ variable "verification_message_template_email_subject_by_link" {
   default     = null
 }
 
-variable "domain" {
-  description = "Cognito User Pool domain"
-  type        = string
-  default     = null
-}
-
-variable "domain_certificate_arn" {
+variable "acm_certificate_arn" {
   description = "The ARN of an ISSUED ACM certificate in `us-east-1` for a custom domain"
   type        = string
   default     = null
