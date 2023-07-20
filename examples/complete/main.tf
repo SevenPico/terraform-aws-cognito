@@ -3,5 +3,5 @@ module "components_cognito" {
   # insert the 1 required variable here
   user_group_name        = "Test_user_group"
   user_group_description = "Test_User_Group"
-  region                 = module.context.enabled
+  region                 = var.cognito_region
 }
