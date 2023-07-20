@@ -69,7 +69,7 @@ module "components_cognito" {
   password_policy_require_uppercase                          = true
   password_policy_temporary_password_validity_days           = 7
   recovery_mechanisms                                        = []
-  region                                                     = var.cognito_region
+  region                                                     = var.region
   resource_server_identifier                                 = ""
   resource_server_name                                       = ""
   resource_server_scope_description                          = ""
