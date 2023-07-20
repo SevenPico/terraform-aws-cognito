@@ -40,7 +40,7 @@
 # will be null, and `module.this.delimiter` will be `-` (hyphen).
 #
 
-module "this" {
+module "context" {
   source  = "registry.terraform.io/cloudposse/label/null"
   version = "0.25.0" # requires Terraform >= 0.13.0
 
