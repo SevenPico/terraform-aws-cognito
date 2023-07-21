@@ -112,14 +112,16 @@ module "cognito" {
   identity_pool_tags                = {}
   enable_cognito_identity_providers = false
 
-  #When cognito_identity_providers is enabled, the cognito identity provider input data(client_id,provider_name,server_side_token_check) will be added
+  #When cognito_identity_providers is enabled
   cognito_identity_providers_client_id               = ""
   cognito_identity_providers_provider_name           = ""
   cognito_identity_providers_server_side_token_check = false
-  cognito_identity_pool_roles                        = {}
+  #These cognito identity provider input data(client_id,provider_name,server_side_token_check) will be added.
+
+  cognito_identity_pool_roles                        = { "authenticated" = "arn:aws::DUMMY_VALUE"}
   role_mapping_enabled                               = false
 
-  #If Role Mappings is enabled. Then the below inputs are required.
+  #If Role Mappings is enabled
   role_mapping_identity_provider         = "Test_provider"
   role_mapping_ambiguous_role_resolution = "AuthenticatedRole"
   role_mapping_type                      = "Rules"
@@ -127,4 +129,5 @@ module "cognito" {
   role_mapping_mapping_rule_match_type   = "Equals"
   cognito_identity_pool_iam_role_arn     = "arn:aws::DUMMY_VALUE"
   role_mapping_mapping_rule_match_value  = "paid"
+  #Then the above inputs are required.
 }

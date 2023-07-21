@@ -690,11 +690,7 @@ EOT
 }
 
 variable "cognito_identity_pool_roles" {
-  description = <<EOT
-  roles = {
-    "authenticated" = aws_iam_role.authenticated.arn
-  }
-EOT
+  description = 'roles = { "authenticated" = aws_iam_role.authenticated.arn}'
   type        = map(any)
   default     = {}
 }
