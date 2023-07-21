@@ -98,7 +98,7 @@ module "cognito" {
   verification_message_template_default_email_option         = null
   verification_message_template_email_message_by_link        = null
   verification_message_template_email_subject_by_link        = null
-  enable_identity_pool                                       = false
+  enable_identity_pool                                       = true
   identity_pool_name                                         = "Default_Identity_Pool_Name"
   allow_unauthenticated_identities                           = false
   allow_classic_flow                                         = false
