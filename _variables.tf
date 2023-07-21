@@ -690,7 +690,7 @@ EOT
 }
 
 variable "cognito_identity_pool_roles" {
-  description = "roles = { ''authenticated'' = aws_iam_role.authenticated.arn}" //Map object should be in double quotes.
+  description = "roles = { ''authenticated'' = aws_iam_role.authenticated.arn}" //Single quotes are not valid. Use double quotes (") to enclose strings.
   type        = map(any)
   default     = {}
 }
