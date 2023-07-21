@@ -20,7 +20,7 @@ resource "aws_cognito_identity_pool" "main" {
 }
 
 resource "aws_cognito_identity_pool_roles_attachment" "main" {
-  identity_pool_id = aws_cognito_identity_pool.main.id
+  identity_pool_id = aws_cognito_identity_pool.main[count.index].id
   roles            = var.cognito_identity_pool_roles
 
   dynamic "role_mapping" {
