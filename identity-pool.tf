@@ -18,3 +18,29 @@ resource "aws_cognito_identity_pool" "main" {
     }
   }
 }
+
+resource "aws_cognito_identity_pool_roles_attachment" "main" {
+  identity_pool_id = aws_cognito_identity_pool.main.id
+  roles            = var.cognito_identity_pool_roles
+
+  dynamic "role_mapping" {
+    for_each = var.role_mapping_enabled ? [1] : []
+
+    content {
+      identity_provider         = var.role_mapping_identity_provider
+      ambiguous_role_resolution = var.role_mapping_ambiguous_role_resolution
+      type                      = var.role_mapping_type
+
+      dynamic "mapping_rule" {
+        for_each = var.role_mapping_enabled ? [1] : []
+
+        content {
+          claim      = var.role_mapping_mapping_rule_claim
+          match_type = var.role_mapping_mapping_rule_match_type
+          role_arn   = var.cognito_identity_pool_iam_role_arn
+          value      = var.role_mapping_mapping_rule_match_value
+        }
+      }
+    }
+  }
+}
