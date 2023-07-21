@@ -98,4 +98,17 @@ module "cognito" {
   verification_message_template_default_email_option         = null
   verification_message_template_email_message_by_link        = null
   verification_message_template_email_subject_by_link        = null
+  enable_identity_pool                                       = false
+  identity_pool_name                                         = "Default_Identity_Pool_Name"
+  allow_unauthenticated_identities                           = false
+  allow_classic_flow                                         = false
+  developer_provider_name                                    = ""
+  supported_login_providers                                  = {}
+  saml_provider_arns                                         = []
+  openid_connect_provider_arns                               = []
+  identity_pool_tags                                         = {}
+  enable_cognito_identity_providers                          = false
+  cognito_identity_providers_client_id                       = ""
+  cognito_identity_providers_provider_name                   = ""
+  cognito_identity_providers_server_side_token_check         = ""
 }

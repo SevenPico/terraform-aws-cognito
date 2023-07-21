@@ -568,3 +568,81 @@ variable "identity_providers" {
   type        = list(any)
   default     = []
 }
+
+variable "identity_pool_name" {
+  description = "The Cognito Identity Pool name."
+  type        = string
+  default     = "identity pool"
+}
+
+variable "allow_unauthenticated_identities" {
+  description = "Whether the identity pool supports unauthenticated logins or not."
+  type        = bool
+  default     = false
+}
+
+variable "allow_classic_flow" {
+  description = "Enables or disables the classic / basic authentication flow. "
+  type        = bool
+  default     = false
+}
+
+variable "developer_provider_name" {
+  description = "The DOMAIN by which Cognito will refer to your users. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. "
+  type        = string
+  default     = ""
+}
+
+variable "supported_login_providers" {
+  description = "Key-Value pairs mapping provider names to provider app IDs."
+  type        = map(any)
+  default     = {}
+}
+
+variable "saml_provider_arns" {
+  description = "An array of Amazon Resource Names (ARNs) of the SAML provider for your identity."
+  type        = list(any)
+  default     = []
+}
+
+variable "openid_connect_provider_arns" {
+  description = "Set of OpenID Connect provider ARNs."
+  type        = set(string)
+  default     = []
+}
+
+variable "identity_pool_tags" {
+  description = "A map of tags to assign to the Identity Pool. "
+  type        = map(any)
+  default     = {}
+}
+
+variable "cognito_identity_providers_client_id" {
+  description = "A map of tags to assign to the Identity Pool. "
+  type        = string
+  default     = ""
+}
+
+variable "cognito_identity_providers_provider_name" {
+  description = "The provider name for an Amazon Cognito Identity User Pool."
+  type        = string
+  default     = ""
+}
+
+variable "cognito_identity_providers_server_side_token_check" {
+  description = "Whether server-side token validation is enabled for the identity provider’s token or not."
+  type        = bool
+  default     = false
+}
+
+variable "enable_identity_pool" {
+  description = "Whether identity pool is required or not"
+  type        = bool
+  default     = false
+}
+
+variable "enable_cognito_identity_providers" {
+  description = "Whether cognito identity providers are required or not"
+  type        = bool
+  default     = false
+}
