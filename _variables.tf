@@ -706,3 +706,9 @@ variable "role_mapping_enabled" {
   type        = bool
   default     = false
 }
+
+variable "enable_identity_pool_roles_attachment" {
+  description = "Functionality to have roles attachment enabled or not."
+  type        = bool
+  default     = false
+}
