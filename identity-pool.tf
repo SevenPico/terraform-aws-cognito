@@ -45,3 +45,4 @@ resource "aws_cognito_identity_pool_roles_attachment" "main" {
     }
   }
 }
+
