@@ -19,7 +19,7 @@
 ##  This file contains code written only by SevenPico, Inc.
 ## ----------------------------------------------------------------------------
 locals {
-  enabled = module.context.enabled
+  enabled = var.enable_user_pool
 
   user_pool_name = coalesce(var.user_pool_name, module.context.id)
 

@@ -712,3 +712,9 @@ variable "enable_identity_pool_roles_attachment" {
   type        = bool
   default     = false
 }
+
+variable "enable_user_pool" {
+  description = "Functionality to have user pool enabled or not."
+  type        = bool
+  default     = false
+}
