@@ -101,15 +101,15 @@ output "resource_servers_scope_identifiers" {
 
 output "identity_pool_id" {
   description = "An identity pool ID, e.g. us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3."
-  value       = var.enable_identity_pool ? aws_cognito_identity_pool.main.id : null
+  value       = var.enable_identity_pool ? aws_cognito_identity_pool.main[count.index].id : null
 }
 
 output "identity_pool_arn" {
   description = "The ARN of the identity pool."
-  value       = var.enable_identity_pool ? aws_cognito_identity_pool.main.arn : null
+  value       = var.enable_identity_pool ? aws_cognito_identity_pool.main[count.index].arn : null
 }
 
 output "identity_pool_tags_all" {
   description = "A map of tags assigned to the resource, including those inherited from the provider"
-  value       = var.enable_identity_pool ? aws_cognito_identity_pool.main.tags_all : null
+  value       = var.enable_identity_pool ? aws_cognito_identity_pool.main[count.index].tags_all : null
 }
