@@ -5,6 +5,7 @@ module "cognito" {
   enabled     = module.context.enabled
   attributes  = ["components", "cognito"]
   domain_name = ""
+  enable_user_pool = true
 
   acm_certificate_arn                                   = null
   admin_create_user_config                              = {}
