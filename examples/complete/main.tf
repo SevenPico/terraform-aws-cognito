@@ -1,9 +1,10 @@
 module "cognito" {
   source = "../../"
   # insert the 1 required variable here
-  context    = module.context.self
-  enabled    = module.context.enabled
-  attributes = ["components", "cognito"]
+  context     = module.context.self
+  enabled     = module.context.enabled
+  attributes  = ["components", "cognito"]
+  domain_name = ""
 
   acm_certificate_arn                                   = null
   admin_create_user_config                              = {}
@@ -107,7 +108,7 @@ module "cognito" {
   saml_provider_arns                                         = []
   openid_connect_provider_arns                               = []
   identity_pool_tags                                         = {}
-  enable_cognito_identity_providers                          = false   //When this is false, the cognito identity provider input data(client_id,provider_name,server_side_token_check) will not be added
+  enable_cognito_identity_providers                          = false //When this is false, the cognito identity provider input data(client_id,provider_name,server_side_token_check) will not be added
   cognito_identity_providers_client_id                       = ""
   cognito_identity_providers_provider_name                   = ""
   cognito_identity_providers_server_side_token_check         = false
