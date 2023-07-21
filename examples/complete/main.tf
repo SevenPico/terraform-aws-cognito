@@ -1,6 +1,6 @@
 module "cognito" {
   source = "../../"
-  # insert the 1 required variable here
+  # This Example is deploying 3 resources:  cognito_user_pool  | cognito_user_group | cognito_identity_pool
   context     = module.context.self
   enabled     = module.context.enabled
   attributes  = ["components", "cognito"]
