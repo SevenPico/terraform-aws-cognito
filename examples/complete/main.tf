@@ -102,7 +102,7 @@ module "cognito" {
   identity_pool_name                                         = "Default_Identity_Pool_Name"
   allow_unauthenticated_identities                           = false
   allow_classic_flow                                         = false
-  developer_provider_name                                    = ""
+  developer_provider_name                                    = "PLACE_HOLDER_VALUE"
   supported_login_providers                                  = {}
   saml_provider_arns                                         = []
   openid_connect_provider_arns                               = []

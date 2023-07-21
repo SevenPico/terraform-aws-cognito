@@ -590,7 +590,7 @@ variable "allow_classic_flow" {
 variable "developer_provider_name" {
   description = "The DOMAIN by which Cognito will refer to your users. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. "
   type        = string
-  default     = ""
+  default     = "PLACE_HOLDER_VALUE"
 }
 
 variable "supported_login_providers" {
