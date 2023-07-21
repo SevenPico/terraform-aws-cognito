@@ -118,7 +118,7 @@ module "cognito" {
   cognito_identity_providers_server_side_token_check = false
   #These cognito identity provider input data(client_id,provider_name,server_side_token_check) will be added.
 
-  cognito_identity_pool_roles                        = { "authenticated" = "arn:aws::DUMMY_VALUE"}
+  cognito_identity_pool_roles                        = { 'authenticated' = "arn:aws::DUMMY_VALUE"}
   role_mapping_enabled                               = false
 
   #If Role Mappings is enabled
