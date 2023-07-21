@@ -110,5 +110,5 @@ module "cognito" {
   enable_cognito_identity_providers                          = false   //When this is false, the cognito identity provider input data(client_id,provider_name,server_side_token_check) will not be added
   cognito_identity_providers_client_id                       = ""
   cognito_identity_providers_provider_name                   = ""
-  cognito_identity_providers_server_side_token_check         = ""
+  cognito_identity_providers_server_side_token_check         = false
 }
