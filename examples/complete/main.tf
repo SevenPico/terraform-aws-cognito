@@ -1,10 +1,10 @@
 module "cognito" {
   source = "../../"
   # This Example is deploying 3 resources:  cognito_user_pool  | cognito_user_group | cognito_identity_pool
-  context     = module.context.self
-  enabled     = module.context.enabled
-  attributes  = ["components", "cognito"]
-  domain_name = ""
+  context          = module.context.self
+  enabled          = module.context.enabled
+  attributes       = ["components", "cognito"]
+  domain_name      = ""
   enable_user_pool = true
 
   acm_certificate_arn                                   = null
@@ -120,9 +120,9 @@ module "cognito" {
   #These cognito identity provider input data(client_id,provider_name,server_side_token_check) will be added.
 
   #When identity_pool_roles_attachment is enabled, the below inputs will be added
-  enable_identity_pool_roles_attachment              = false
-  cognito_identity_pool_roles                        = { "authenticated" = "arn:aws:mobiletargeting:*:111363027042:apps/44bdbc0071d6dummyf98777456ba7f7198*"}
-  role_mapping_enabled                               = false
+  enable_identity_pool_roles_attachment = false
+  cognito_identity_pool_roles           = { "authenticated" = "arn:aws:mobiletargeting:*:111363027042:apps/44bdbc0071d6dummyf98777456ba7f7198*" }
+  role_mapping_enabled                  = false
 
   #If Role Mappings is enabled
   role_mapping_identity_provider         = "Test_provider"
