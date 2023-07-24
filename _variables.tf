@@ -568,3 +568,153 @@ variable "identity_providers" {
   type        = list(any)
   default     = []
 }
+
+variable "identity_pool_name" {
+  description = "The Cognito Identity Pool name."
+  type        = string
+  default     = "identity pool"
+}
+
+variable "allow_unauthenticated_identities" {
+  description = "Whether the identity pool supports unauthenticated logins or not."
+  type        = bool
+  default     = false
+}
+
+variable "allow_classic_flow" {
+  description = "Enables or disables the classic / basic authentication flow. "
+  type        = bool
+  default     = false
+}
+
+variable "developer_provider_name" {
+  description = "The DOMAIN by which Cognito will refer to your users. This name acts as a placeholder that allows your backend and the Cognito service to communicate about the developer provider. "
+  type        = string
+  default     = ""
+}
+
+variable "supported_login_providers" {
+  description = "Key-Value pairs mapping provider names to provider app IDs."
+  type        = map(any)
+  default     = {}
+}
+
+variable "saml_provider_arns" {
+  description = "An array of Amazon Resource Names (ARNs) of the SAML provider for your identity."
+  type        = list(any)
+  default     = []
+}
+
+variable "openid_connect_provider_arns" {
+  description = "Set of OpenID Connect provider ARNs."
+  type        = set(string)
+  default     = []
+}
+
+variable "identity_pool_tags" {
+  description = "A map of tags to assign to the Identity Pool. "
+  type        = map(any)
+  default     = {}
+}
+
+variable "cognito_identity_providers_client_id" {
+  description = "A map of tags to assign to the Identity Pool. "
+  type        = string
+  default     = ""
+}
+
+variable "cognito_identity_providers_provider_name" {
+  description = "The provider name for an Amazon Cognito Identity User Pool."
+  type        = string
+  default     = ""
+}
+
+variable "cognito_identity_providers_server_side_token_check" {
+  description = "Whether server-side token validation is enabled for the identity provider’s token or not."
+  type        = bool
+  default     = false
+}
+
+variable "enable_identity_pool" {
+  description = "Whether identity pool is required or not"
+  type        = bool
+  default     = false
+}
+
+variable "enable_cognito_identity_providers" {
+  description = "Whether cognito identity providers are required or not"
+  type        = bool
+  default     = false
+}
+
+variable "role_mapping_identity_provider" {
+  description = "Role Mapping itself is OPTIONAL. But if you choose to have role mappings, Identity provider is REQUIRED : A string identifying the identity provider, for example, | graph.facebook.com | cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id. Depends on cognito_identity_providers set on aws_cognito_identity_pool resource or a aws_cognito_identity_provider resource."
+  type        = string
+  default     = "PLACEHOLDER_IDENTITY_PROVIDER_VALUE"
+}
+
+variable "role_mapping_ambiguous_role_resolution" {
+  description = "(Optional) - Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. Required if you specify Token or Rules as the Type."
+  type        = string
+  default     = "PLACEHOLDER_AuthenticatedRole"
+}
+
+variable "role_mapping_type" {
+  description = "(Required) - The role mapping type."
+  type        = string
+  default     = "Rules"
+}
+
+variable "role_mapping_mapping_rule_claim" {
+  description = <<EOT
+  (Required) - The claim name that must be present in the token, for example, "isAdmin" or "paid"."
+EOT
+  type        = string
+  default     = "isAdmin"
+}
+
+variable "role_mapping_mapping_rule_match_type" {
+  description = <<EOT
+  (Required) - The match condition that specifies how closely the claim value in the IdP token must match Value.
+EOT
+  type        = string
+  default     = "Equals"
+}
+
+variable "role_mapping_mapping_rule_match_value" {
+  description = <<EOT
+  (Required) - A brief string that the claim must match, for example, "paid" or "yes".
+EOT
+  type        = string
+  default     = "paid"
+}
+
+variable "cognito_identity_pool_roles" {
+  description = "roles = { ''authenticated'' = aws_iam_role.authenticated.arn}" //Single quotes are not valid. Use double quotes (") to enclose strings.
+  type        = map(any)
+  default     = {}
+}
+
+variable "cognito_identity_pool_iam_role_arn" {
+  description = "(Required) - The role ARN."
+  type        = string
+  default     = "PLACEHOLDER_VALUE"
+}
+
+variable "role_mapping_enabled" {
+  description = "Functionality to have role mapping enabled or not."
+  type        = bool
+  default     = false
+}
+
+variable "enable_identity_pool_roles_attachment" {
+  description = "Functionality to have roles attachment enabled or not."
+  type        = bool
+  default     = false
+}
+
+variable "enable_user_pool" {
+  description = "Functionality to have user pool enabled or not."
+  type        = bool
+  default     = false
+}

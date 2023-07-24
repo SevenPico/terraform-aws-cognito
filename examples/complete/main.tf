@@ -1,9 +1,11 @@
 module "cognito" {
   source = "../../"
-  # insert the 1 required variable here
-  context    = module.context.self
-  enabled    = module.context.enabled
-  attributes = ["components", "cognito"]
+  # This Example is deploying 3 resources:  cognito_user_pool  | cognito_user_group | cognito_identity_pool
+  context          = module.context.self
+  enabled          = module.context.enabled
+  attributes       = ["components", "cognito"]
+  domain_name      = ""
+  enable_user_pool = true
 
   acm_certificate_arn                                   = null
   admin_create_user_config                              = {}
@@ -98,4 +100,37 @@ module "cognito" {
   verification_message_template_default_email_option         = null
   verification_message_template_email_message_by_link        = null
   verification_message_template_email_subject_by_link        = null
+
+  #Identity Pool Inputs for creating Identity Pool
+  enable_identity_pool              = true
+  identity_pool_name                = "Default_Identity_Pool_Name"
+  allow_unauthenticated_identities  = false
+  allow_classic_flow                = false
+  developer_provider_name           = "PLACE_HOLDER_VALUE"
+  supported_login_providers         = {}
+  saml_provider_arns                = []
+  openid_connect_provider_arns      = []
+  identity_pool_tags                = {}
+  enable_cognito_identity_providers = false
+
+  #When cognito_identity_providers is enabled
+  cognito_identity_providers_client_id               = ""
+  cognito_identity_providers_provider_name           = ""
+  cognito_identity_providers_server_side_token_check = false
+  #These cognito identity provider input data(client_id,provider_name,server_side_token_check) will be added.
+
+  #When identity_pool_roles_attachment is enabled, the below inputs will be added
+  enable_identity_pool_roles_attachment = false
+  cognito_identity_pool_roles           = { "authenticated" = "arn:aws:mobiletargeting:*:111363027042:apps/44bdbc0071d6dummyf98777456ba7f7198*" }
+  role_mapping_enabled                  = false
+
+  #If Role Mappings is enabled
+  role_mapping_identity_provider         = "Test_provider"
+  role_mapping_ambiguous_role_resolution = "AuthenticatedRole"
+  role_mapping_type                      = "Rules"
+  role_mapping_mapping_rule_claim        = "isAdmin"
+  role_mapping_mapping_rule_match_type   = "Equals"
+  cognito_identity_pool_iam_role_arn     = "arn:aws::DUMMY_VALUE"
+  role_mapping_mapping_rule_match_value  = "paid"
+  #Then the above inputs are required.
 }
