@@ -98,3 +98,18 @@ output "resource_servers_scope_identifiers" {
   description = " A list of all scopes configured in the format identifier/scope_name"
   value       = local.enabled ? aws_cognito_resource_server.resource.*.scope_identifiers : null
 }
+
+output "identity_pool_id" {
+  description = "An identity pool ID, e.g. us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3."
+  value       = var.enable_identity_pool ? aws_cognito_identity_pool.main[0].id : null
+}
+
+output "identity_pool_arn" {
+  description = "The ARN of the identity pool."
+  value       = var.enable_identity_pool ? aws_cognito_identity_pool.main[0].arn : null
+}
+
+output "identity_pool_tags_all" {
+  description = "A map of tags assigned to the resource, including those inherited from the provider"
+  value       = var.enable_identity_pool ? aws_cognito_identity_pool.main[0].tags_all : null
+}
