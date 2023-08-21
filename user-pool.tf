@@ -21,7 +21,7 @@
 locals {
   enabled = var.enable_user_pool
 
-  user_pool_name = coalesce(var.user_pool_name, module.context.id)
+  user_pool_name = try(coalesce(var.user_pool_name, module.context.id), "")
 
   # If no username_configuration is provided return a empty list
   username_configuration_default = length(var.username_configuration) == 0 ? {} : {
