@@ -357,7 +357,7 @@ variable "user_attribute_update_settings" {
 
 variable "user_attribute_update_settings_require_verification_before_update" {
   description = "If set, the provided value(s) must also be set in auto_verified_attributes. Valid values: email, phone_number."
-  type        = string
+  type        = list(string)
   default     = null
 
 }
