@@ -718,3 +718,9 @@ variable "enable_user_pool" {
   type        = bool
   default     = false
 }
+
+variable "deletion_protection" {
+  description = "(Optional) When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are ACTIVE and INACTIVE, Default value is INACTIVE"
+  type = string
+  default = "INACTIVE"
+}
