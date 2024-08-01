@@ -183,7 +183,6 @@ resource "aws_cognito_user_pool" "pool" {
     }
   }
 
-
   dynamic "admin_create_user_config" {
     for_each = local.admin_create_user_config
     content {
