@@ -137,6 +137,11 @@ locals {
 
   user_pool_add_ons = var.user_pool_add_ons_advanced_security_mode == null && length(var.user_pool_add_ons) == 0 ? [] : [local.user_pool_add_ons_default]
 
+  user_attribute_update_settings_default = {
+    attributes_require_verification_before_update = lookup(var.user_attribute_update_settings, "attributes_require_verification_before_update", null) == null ? var.user_attribute_update_settings_require_verification_before_update : lookup(var.user_attribute_update_settings, "attributes_require_verification_before_update")
+  }
+  user_attribute_update_settings = var.user_attribute_update_settings == null && length(var.user_attribute_update_settings) == 0 ? [] : [local.user_attribute_update_settings_default]
+
   # verification_message_template
   # If no verification_message_template is provided, build a verification_message_template using the default values
   verification_message_template_default = {
@@ -177,6 +182,7 @@ resource "aws_cognito_user_pool" "pool" {
       case_sensitive = lookup(username_configuration.value, "case_sensitive")
     }
   }
+
 
   dynamic "admin_create_user_config" {
     for_each = local.admin_create_user_config
@@ -325,6 +331,13 @@ resource "aws_cognito_user_pool" "pool" {
     for_each = local.user_pool_add_ons
     content {
       advanced_security_mode = lookup(user_pool_add_ons.value, "advanced_security_mode")
+    }
+  }
+
+  dynamic "user_attribute_update_settings" {
+    for_each = local.user_attribute_update_settings
+    content {
+      attributes_require_verification_before_update  = lookup(user_attribute_update_settings.value, "attributes_require_verification_before_update ")
     }
   }
 
