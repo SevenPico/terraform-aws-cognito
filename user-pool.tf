@@ -336,7 +336,7 @@ resource "aws_cognito_user_pool" "pool" {
   dynamic "user_attribute_update_settings" {
     for_each = local.user_attribute_update_settings
     content {
-      attributes_require_verification_before_update  = lookup(user_attribute_update_settings.value, "attributes_require_verification_before_update ")
+      attributes_require_verification_before_update  = lookup(user_attribute_update_settings.value, "attributes_require_verification_before_update")
     }
   }
 
