@@ -349,6 +349,19 @@ variable "user_pool_add_ons" {
   default     = {}
 }
 
+variable "user_attribute_update_settings" {
+  description = "A list of attributes requiring verification before update. If set, the provided value(s) must also be set in auto_verified_attributes. Valid values: email, phone_number."
+  type        = map(any)
+  default     = {}
+}
+
+variable "user_attribute_update_settings_require_verification_before_update" {
+  description = "If set, the provided value(s) must also be set in auto_verified_attributes. Valid values: email, phone_number."
+  type        = list(string)
+  default     = null
+
+}
+
 variable "user_pool_add_ons_advanced_security_mode" {
   description = "The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`"
   type        = string
@@ -717,4 +730,10 @@ variable "enable_user_pool" {
   description = "Functionality to have user pool enabled or not."
   type        = bool
   default     = false
+}
+
+variable "deletion_protection" {
+  description = "(Optional) When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are ACTIVE and INACTIVE, Default value is INACTIVE"
+  type        = string
+  default     = "INACTIVE"
 }
