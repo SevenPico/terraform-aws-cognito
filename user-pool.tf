@@ -140,7 +140,7 @@ locals {
   user_attribute_update_settings_default = {
     attributes_require_verification_before_update = lookup(var.user_attribute_update_settings, "attributes_require_verification_before_update", null) == null ? var.user_attribute_update_settings_require_verification_before_update : lookup(var.user_attribute_update_settings, "attributes_require_verification_before_update")
   }
-  
+
   user_attribute_update_settings = var.user_attribute_update_settings == null && length(var.user_attribute_update_settings) == 0 ? [] : [local.user_attribute_update_settings_default]
 
   # verification_message_template
