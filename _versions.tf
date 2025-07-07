@@ -21,9 +21,13 @@
 
 terraform {
   required_version = ">= 1.1.5"
+
   required_providers {
     aws = {
-      source  = "hashicorp/aws"
+      source = "hashicorp/aws"
+      # Starting with v4.8.0, the provider adds `aws_cognito_user_in_group` allowing adding Cognito Users to Cognito Groups in terraform
+      # v4.12.1+ includes improvements for Cognito Identity Pool role mappings and enhanced security features
+      # https://github.com/hashicorp/terraform-provider-aws/releases
       version = ">= 4.12.1"
     }
   }
