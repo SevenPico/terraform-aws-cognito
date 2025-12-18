@@ -349,18 +349,6 @@ variable "user_pool_add_ons" {
   default     = {}
 }
 
-variable "user_attribute_update_settings" {
-  description = "A list of attributes requiring verification before update. If set, the provided value(s) must also be set in auto_verified_attributes. Valid values: email, phone_number."
-  type        = map(any)
-  default     = {}
-}
-
-variable "user_attribute_update_settings_require_verification_before_update" {
-  description = "If set, the provided value(s) must also be set in auto_verified_attributes. Valid values: email, phone_number."
-  type        = list(string)
-  default     = null
-
-}
 
 variable "user_pool_add_ons_advanced_security_mode" {
   description = "The mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`"
