@@ -12,10 +12,6 @@ resource "aws_cognito_identity_provider" "identity_provider" {
 
    # Ignore AWS-managed SAML metadata fields that are auto-populated
   lifecycle {
-    ignore_changes = [
-      provider_details["ActiveEncryptionCertificate"],
-      provider_details["SLORedirectBindingURI"],
-      provider_details["SSORedirectBindingURI"]
-    ]
+    ignore_changes = [provider_details]
   }
 }
